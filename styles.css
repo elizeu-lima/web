@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0e0e11;
+    color: #fff;
+}
+
+/* NAVIGATION BAR */
+header {
+    padding: 20px 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    padding: 15px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    background: rgba(20, 20, 30, 0.9);
+}
+
+/* NOME À ESQUERDA */
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+}
+
+/* MENU AO CENTRO */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    flex: 2;
+    justify-content: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #fff;
+}
+
+/* BOTÃO ENG À DIREITA */
+.language-switch {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.language-switch button {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.language-switch button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* SEÇÃO PRINCIPAL */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+}
+
+.content {
+    max-width: 500px;
+}
+
+h1 {
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #ff007f, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.blue-text {
+    color: #00aaff;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00aaff, #ff007f);
+    color: white;
+    transition: 0.3s;
+    border: 1px solid #ff007f;
+}
+
+.cta-button:hover {
+    background: linear-gradient(90deg, #ff007f, #00aaff);
+    border-color: #00aaff;
+}
+
+/* IMAGEM */
+.image-container img {
+    margin-top: 180px;
+    margin-right: 35px;
+    max-width: 400px;
+    border-radius: 10px;
+}
+
+/* RESPONSIVIDADE */
+
+/* PARA TABLETS */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .image-container img {
+        margin-top: 50px;
+        margin-right: 0;
+        max-width: 350px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        padding: 15px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+/* PARA MOBILE */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .language-switch {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    .cta-button {
+        padding: 8px 16px;
+    }
+
+    .image-container img {
+        max-width: 300px;
+        margin-top: 30px;
+    }
+}
+
+/* LINHA TRANSPARENTE ATRAVESSANDO A PÁGINA */
+.divider-full {
+    width: 100%;
+    height: 2px;
+    
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* SEÇÃO MY SERVICES */
+.services {
+    text-align: center;
+    padding: 80px 5%;
+    position: relative;
+}
+
+.services h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+
+/* CONTAINER DOS SERVIÇOS */
+.service-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+}
+
+/* SEÇÃO MY SERVICES */
+.services {
+    text-align: center;
+    padding: 80px 5%;
+    position: relative;
+}
+
+/* TÍTULO COM GRADIENTE */
+.services h2 {
+    font-size: 32px;
+    margin-bottom: 50px;
+    background: linear-gradient(90deg, #ff007f, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* CONTAINER DOS SERVIÇOS */
+.service-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Reduzi o espaçamento para aproximar as boxes */
+    position: relative;
+}
+
+/* CAIXAS DE SERVIÇOS */
+.service-box {
+    background: rgba(20, 20, 30, 0.9);
+    border-radius: 10px;
+    padding: 20px 30px;
+    max-width: 500px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+/* TÍTULO DOS SERVIÇOS */
+.service-box h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* DESCRIÇÃO */
+.service-box p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* POSICIONAMENTO DAS BOXES PARA SE ENCAIXAREM */
+.service-box.left {
+    align-self: flex-start;
+    transform: translateX(50%); /* Move a box da esquerda um pouco para a direita */
+}
+
+.service-box.right {
+    align-self: flex-end;
+    transform: translateX(-50%); /* Move a box da direita um pouco para a esquerda */
+}
+
+/* LINHAS TRANSPARENTES CONECTANDO AS SEÇÕES */
+.service-box::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    left: 50%;
+    bottom: -30px;
+    transform: translateX(-50%);
+}
+
+/* CONECTANDO LINHAS CORRETAMENTE ENTRE CARDS */
+.service-box.right::after {
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.service-box.left::after {
+    left: 100%;
+    transform: translateX(-50%);
+}
+
+/* REMOVER LINHA DO ÚLTIMO ITEM */
+.service-box:last-child::after {
+    display: none;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .services {
+        padding: 50px 20px;
+    }
+
+    .service-box {
+        max-width: 90%;
+        text-align: center;
+        transform: none; /* Remove o deslocamento no mobile */
+    }
+
+    .service-box::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .service-box.left, 
+    .service-box.right {
+        align-self: center;
+    }
+}
+
+/*skills*/
+
+.skills-section {
+    text-align: center;
+    padding: 80px 5%;
+}
+
+/* Título principal */
+.skills-title h2 {
+    text-align: left;
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff007f, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.skills-content{
+    margin-top: 60px;
+}
+
+/* Subtítulo centralizado */
+.skills-content h3 {
+    font-size: 22px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* Grid de ícones */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os itens */
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    width: 80px; /* Tamanho fixo para manter alinhado */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-item img {
+    width: 60px;
+    height: 60px;
+    filter: brightness(0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-item img:hover {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .skills-grid {
+        max-width: 90%;
+        gap: 15px;
+    }
+    
+    .skill-item {
+        width: 60px;
+        height: 60px;
+    }
+
+    .skill-item img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/*projects*/
+
+/* Estilização do título */
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    background: linear-gradient(90deg, #ff007f, #007bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.section-title, .h2 {
+    text-align: left;
+    margin-left: 40px;
+    margin-top: 80px;
+}
+/* Grid de projetos */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1100px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* Estilização dos cards */
+.portfolio-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #111;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-item img {
+    width: 100%;
+    display: block;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Overlay com informações */
+.portfolio-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ícone de link */
+.portfolio-overlay a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.portfolio-overlay a:hover {
+    color: #ff007f;
+}
+
+/* Efeito de hover */
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .portfolio-overlay {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+/*Contato*/
+/* Estilos gerais */
+#contact {
+    background: #0a0a0a;
+    padding: 50px 10%;
+    color: white;
+}
+
+/* Container principal */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+/* Texto do contato */
+.contact-info {
+    max-width: 40%;
+}
+
+.contact-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Gradiente no texto */
+.gradient-text {
+    background: linear-gradient(90deg, #ff007f, #007bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Informações de contato */
+.contact-details p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.contact-details a {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+/* Social Media */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff007f;
+}
+
+/* Formulário de contato */
+.contact-form {
+    max-width: 50%;
+    flex: 1;
+}
+
+.contact-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Inputs do formulário */
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    font-size: 1rem;
+}
+
+/* Estilo para mensagens de erro */
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Adiciona borda vermelha nos inputs com erro */
+.input-error {
+    border: 1px solid #ff4d4d;
+}
+
+/* Mensagem de sucesso */
+.success-message {
+    color: #00ff99;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(0, 255, 153, 0.2);
+    display: none; /* Oculta inicialmente */
+}
+
+/* Botão */
+.btn-gradient {
+    display: inline-block;
+    background: linear-gradient(90deg, #007bff, #ff007f);
+    border: none;
+    padding: 10px 25px;
+    font-size: 1rem;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.btn-gradient:hover {
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-info, .contact-form {
+        max-width: 100%;
+    }
+}
+
+
