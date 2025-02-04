@@ -64,7 +64,12 @@ nav {
     color: #fff;
 }
 
-
+/* Esconde os tracinhos em telas menores */
+@media only screen and (max-width: 767px) {
+    .dash {
+        display: none;
+    }
+}
 @media(max-whidth: 768px){
     body{
         flex-direction: column;
