@@ -1,76 +1,77 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const contactForm = document.getElementById("contact-form");
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form'); // Seleciona o formulário
+    const successMessage = document.getElementById('success-message'); // Seleciona a mensagem de sucesso
 
-    contactForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Evita o recarregamento da página
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
 
-        // Captura os valores dos campos
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+        // Validação dos campos
+        const name = form.querySelector('#name').value.trim();
+        const email = form.querySelector('#email').value.trim();
+        const message = form.querySelector('#message').value.trim();
 
-        // Limpa mensagens de erro anteriores
-        clearErrors();
-
-        let hasError = false;
+        let isValid = true;
 
         // Validação do nome
-        if (name === "") {
-            showError("name", "O nome é obrigatório.");
-            hasError = true;
+        if (name === '') {
+            isValid = false;
+            showError(form.querySelector('#name'), 'Por favor, insira seu nome.');
+        } else {
+            clearError(form.querySelector('#name'));
         }
 
-        // Validação do email
-        if (email === "") {
-            showError("email", "O e-mail é obrigatório.");
-            hasError = true;
-        } else if (!validateEmail(email)) {
-            showError("email", "Digite um e-mail válido.");
-            hasError = true;
+        // Validação do e-mail
+        if (email === '' || !validateEmail(email)) {
+            isValid = false;
+            showError(form.querySelector('#email'), 'Por favor, insira um e-mail válido.');
+        } else {
+            clearError(form.querySelector('#email'));
         }
 
         // Validação da mensagem
-        if (message === "") {
-            showError("message", "A mensagem não pode estar vazia.");
-            hasError = true;
+        if (message === '') {
+            isValid = false;
+            showError(form.querySelector('#message'), 'Por favor, insira uma mensagem.');
+        } else {
+            clearError(form.querySelector('#message'));
         }
 
-        // Se houver erro, interrompe o envio
-        if (hasError) return;
+        // Se todos os campos forem válidos, simula o envio
+        if (isValid) {
+            // Simula o envio do formulário (substitua por uma requisição AJAX se necessário)
+            setTimeout(() => {
+                successMessage.style.display = 'block'; // Exibe a mensagem de sucesso
+                form.reset(); // Limpa o formulário
 
-        // Simula o envio para um backend
-        setTimeout(() => {
-            showSuccess("Contato enviado com sucesso!");
-            contactForm.reset(); // Limpa os campos após o envio
-        }, 500);
+                // Oculta a mensagem de sucesso após 5 segundos
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000); // 5000ms = 5 segundos
+            }, 1000); // Simula um delay de 1 segundo para o envio
+        }
     });
 
+    // Função para validar e-mail
     function validateEmail(email) {
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     }
 
-    function showError(fieldId, message) {
-        const field = document.getElementById(fieldId);
-        const errorSpan = document.createElement("span");
-        errorSpan.classList.add("error-message");
-        errorSpan.innerText = message;
-        field.parentElement.appendChild(errorSpan);
-        field.classList.add("input-error");
+    // Função para exibir mensagens de erro
+    function showError(input, message) {
+        const errorMessage = input.nextElementSibling;
+        if (errorMessage && errorMessage.classList.contains('error-message')) {
+            errorMessage.textContent = message;
+            input.classList.add('input-error');
+        }
     }
 
-    function clearErrors() {
-        document.querySelectorAll(".error-message").forEach(error => error.remove());
-        document.querySelectorAll(".input-error").forEach(input => input.classList.remove("input-error"));
-    }
-
-    function showSuccess(message) {
-        const successMessage = document.getElementById("success-message");
-        successMessage.innerText = message;
-        successMessage.style.display = "block";
-
-        setTimeout(() => {
-            successMessage.style.display = "none";
-        }, 5000);
+    // Função para limpar mensagens de erro
+    function clearError(input) {
+        const errorMessage = input.nextElementSibling;
+        if (errorMessage && errorMessage.classList.contains('error-message')) {
+            errorMessage.textContent = '';
+            input.classList.remove('input-error');
+        }
     }
 });
