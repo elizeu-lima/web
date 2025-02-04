@@ -15,21 +15,20 @@
         <nav>
             <div class="logo">Elizeu Lima</div>
             <ul class="nav-links">
-                <li><a href="#">SERVICES</a></li>
-                <li><a href="#">TECHNOLOGIES</a></li>
-                <li><a href="#">PORTFOLIO</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="#services">SERVIÇOS</a></li>
+                <li><a href="#technologies">TECNOLOGIAS</a></li>
+                <li><a href="#portfolio">PORTFOLIO</a></li>
+                <li><a href="#contact">CONTATO</a></li>
             </ul>
-            
         </nav>
     </header>
 
     <section class="hero">
         <div class="content">
             <h1><span class="gradient-text">DESENVOLVEDOR</span> <span class="gradient-text">WEB</span></h1>
-            <p>Eu sou Elizeu – <span class="blue-text">web-developer</span> apaixonado por criar sites bonitos e
+            <p>Eu sou Elizeu – <span class="blue-text">DESENVOLVEDOR WEB</span> apaixonado por criar sites bonitos e
                 responsivos.</p>
-            <a href="#" class="cta-button">VEJA MEU TRABALHO</a>
+            <a href="https://web-five-weld.vercel.app/" class="cta-button">VEJA MEU TRABALHO</a>
         </div>
         <div class="image-container">
             <img src="/assets/desenvolvedores-web-desenhados-a-mao_23-2148819604.avif" alt="Tatiana">
@@ -37,8 +36,8 @@
     </section>
     <div class="divider-full"></div> <!-- Linha horizontal transparente -->
 
-    <section class="services">
-        <h2 class="gradient-text">MY SERVICES</h2>
+    <section id="services" class="services">
+        <h2 class="gradient-text">MEUS SERVIÇOS</h2>
         <div class="service-container">
             <div class="service-box left">
                 <i class="icon">💻</i>
@@ -64,9 +63,9 @@
     </section>
     <div class="divider-full"></div> <!-- Linha horizontal transparente -->
 
-    <section class="skills-section">
+    <section id="technologies" class="skills-section">
         <div class="skills-title">
-            <h2>SKILLS</h2>
+            <h2>TECNOLOGIAS</h2>
         </div>
         <div class="skills-content">
             <h3>Skills e ferramentas que tenho utilizado e estudado</h3>
@@ -124,7 +123,8 @@
                 <img src="/assets/fuse.png" alt="Projeto 5">
                 <div class="portfolio-overlay">
                     <p>Website Coding <br> (angular)</p>
-                    <a href="https://dash-fuse2.vercel.app/sign-in?redirectURL=%2Fdashboards%2Fproject" target="_blank">🔗</a>
+                    <a href="https://dash-fuse2.vercel.app/sign-in?redirectURL=%2Fdashboards%2Fproject"
+                        target="_blank">🔗</a>
                 </div>
             </div>
             <div class="portfolio-item">
@@ -137,10 +137,9 @@
         </div>
     </section>
 
-
     <div class="divider-full"></div> <!-- Linha horizontal transparente -->
     <section id="contact">
-        <div class="contact-container">
+        <div id="contact" class="contact-container">
             <!-- Texto de contato -->
             <div class="contact-info">
                 <h2 class="gradient-text">VOCÊ TEM UM PROJETO PARA REALIZAR?</h2>
@@ -152,15 +151,14 @@
                 <div class="social-media">
                     <p><strong>MIDIA SOCIAL</strong></p>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/elizeu-programador-frontend/"><i class="fab fa-linkedin"></i></a>
-                        
-                        
+                        <a href="https://www.linkedin.com/in/elizeu-programador-frontend/"><i
+                                class="fab fa-linkedin"></i></a>
                         <a href="https://w.app/q9txkf"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
             </div>
-    
+
             <!-- Formulário de Contato -->
             <div class="contact-form">
                 <h3>CONTACT FORM</h3>
@@ -173,12 +171,39 @@
                     <span class="error-message"></span> <!-- Mensagem de erro para a mensagem -->
                     <button type="submit" class="btn-gradient">ENVIAR</button>
                 </form>
-                <div id="success-message" class="success-message" style="display: none;">Contato enviado com sucesso!</div>
-                
+                <div id="success-message" class="success-message" style="display: none;">Contato enviado com sucesso!
+                </div>
             </div>
         </div>
     </section>
-    
+
+    <!-- Botão "Voltar ao Topo" -->
+    <button id="back-to-top" title="Voltar ao Topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const backToTopButton = document.getElementById('back-to-top');
+
+            // Mostra ou oculta o botão conforme o scroll da página
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) { // Exibe o botão após rolar 300px
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            // Rolagem suave ao clicar no botão
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

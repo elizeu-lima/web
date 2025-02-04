@@ -75,3 +75,39 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault(); // Impede o comportamento padrão
+        const targetId = this.getAttribute('href'); // Pega o ID da seção
+        const targetSection = document.querySelector(targetId); // Seleciona a seção
+
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth', // Rolagem suave
+                block: 'start' // Alinha o topo da seção com o topo da janela
+            });
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    // Mostra ou oculta o botão conforme o scroll da página
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) { // Exibe o botão após rolar 300px
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+    // Rolagem suave ao clicar no botão
+    backToTopButton.addEventListener('click', function () {
+        window.scrollTo({
+            top: 0, // Leva ao topo da página
+            behavior: 'smooth' // Rolagem suave
+        });
+    });
+});
